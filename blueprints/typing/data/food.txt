@@ -1,0 +1,1 @@
+apple,banana,bread,cheese,chicken,chips,chocolate,corn,cucumber,egg,fish,grape,juice,lemon,lettuce,meat,milk,orange,pasta,peach,pear,peas,pizza,potato,rice,salad,sandwich,sausage,soup,strawberry,sugar,tomato,water,yogurt

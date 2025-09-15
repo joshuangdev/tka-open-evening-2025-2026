@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <title>HelloType</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='typing/styles.css')}}">
+</head>
+<body>
+    <main>
+        <h1 class="hellotype">HelloType</h1>
+        <div id="words" onmousedown="return false" onselectstart="return false" oncopy="return false"><span onmousedown="return false" onselectstart="return false" oncopy="return false">Please wait for the words to load here...</span></div>
+        <div id="typing-interface">
+            <input type="text" id="typing-input" placeholder="Start typing here..." autocomplete="off" autofocus>
+            <input type="number" id="word-count" placeholder="Amount of text you want to type.." autocomplete="off" autofocus>
+            <button id="start-btn">Start</button>
+            <button id="reset-btn">Reset</button>
+        </div>
+        <form id="results-form" action="{{ url_for('typing.typing_results') }}" method="POST">
+            <input type="hidden" name="wpm" id="wpm-field">
+            <input type="hidden" name="accuracy" id="accuracy-field">
+            <input type="hidden" name="time" id="time-field">
+            <input type="hidden" name="mistakes" id="mistakes-field">
+        </form>
+        <div id="results"><span id="info"></span></div>
+    </main>
+    <script src="{{url_for('static', filename='typing/script.js')}}"></script>
+</body>
+</html>

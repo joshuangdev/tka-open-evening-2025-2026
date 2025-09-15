@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap');
+:root{
+    --bgColor: #333;
+    --textPrimary: #fff;
+    --textSecondary: #666;
+    --primaryColor: #fd4;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color:var(--bgColor);
+    color: var(--textPrimary);
+    font-size: 1.4rem;
+}
+main{
+    width: 600px;
+    margin: 50px auto;
+}
+.hellotype {
+    font-family: "Bitcount Grid Double", system-ui;
+}
+h1{
+    color: var(--primaryColor);
+    margin-bottom: 2px;
+}
+h1 svg{
+    width: 40px;
+    fill: var(--primaryColor);
+}
+#words{
+    filter: blur(0px);
+    font-family: 'Roboto Mono', monospace;
+    color: var(--textSecondary);
+}
+.correct {
+  color: green;
+  background: lightgreen;
+}
+
+.incorrect {
+  color: red;
+  background-color: lightcoral;
+}
