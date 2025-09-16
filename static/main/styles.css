@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap');
+:root{
+    --bgColor: #333;
+    --textPrimary: #fff;
+    --textSecondary: #666;
+    --primaryColor: #fd4;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color:var(--bgColor);
+    color: var(--textPrimary);
+    font-size: 1.4rem;
+}
+main{
+    width: 600px;
+    margin: 50px auto;
+}
+.title {
+    font-family: "Bitcount Grid Double", system-ui;
+}
+h1{
+    color: var(--primaryColor);
+    margin-bottom: 2rem;
+}
+h1 svg{
+    width: 40px;
+    fill: var(--primaryColor);
+}
+.banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--textSecondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#banner-text {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.5rem;
+    font-family: 'Roboto', sans-serif;
+    animation: fadeInOut 10s infinite;
+}
+.box {
+    background-color: #444;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow: hidden;
+    display: flow-root;
+    margin-top: 20px;
+}
+.inputbox {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--textPrimary);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-bottom: 2px solid var(--textSecondary);
+    outline: none;
+    transition: border-bottom-color 0.3s;
+}
+.button {
+    background: var(--primaryColor);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    color: var(--bgColor);
+    font-weight: bold;
+    transition: background-color 0.3s;
+}

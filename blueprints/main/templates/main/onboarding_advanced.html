@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <title>Onboarding</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alphabrate/popupjs/pu.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='main/styles.css')}}">
+</head>
+<body>
+    <main>
+        <h1 class="title" id="herotitle">AdvancedType</h1>
+        <p>We're glad to have you onboard AdvancedType!</p>
+        <form action="{{ url_for('typing.advanced_type') }}" method="GET">
+            <input class="inputbox" type="text" id="name" name="name" placeholder="Enter your name here!" required><br><br>
+            <input class="button" type="submit" value="Submit">
+        </form>
+        <span hidden id="mode"></span>
+    </main>
+    <div class="banner"><span id="banner-text">This was made for The Kingston Acadmey's Open Evening 2025. Thank you for visiting The Kingston Acamdey!</span></div>
+</body>
+</html>

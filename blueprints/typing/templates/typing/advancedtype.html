@@ -6,10 +6,11 @@
     <title>HelloType</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/alphabrate/popupjs/pu.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='typing/styles.css')}}">
+    <meta charset="UTF-8">
 </head>
 <body>
     <main>
-        <h1 class="hellotype" id="herotitle">HelloType</h1>
+        <h1 class="hellotype" id="herotitle">HelloAdvanced</h1>
         <div id="words" onmousedown="return false" onselectstart="return false" oncopy="return false"><span onmousedown="return false" onselectstart="return false" oncopy="return false">Press start to fetch data from the server!</span></div>
         <div id="typing-interface">
             <input type="text" id="typing-input" placeholder="Click start!" autocomplete="off" autofocus>
@@ -26,6 +27,6 @@
         </form>
     </main>
     <div class="banner"><span id="banner-text">This was made for The Kingston Acadmey's Open Evening 2025. Thank you for visiting The Kingston Acamdey!</span></div>
-    <script src="{{url_for('static', filename='typing/hellotype.js')}}"></script>
+    <script src="{{url_for('static', filename='typing/advanced_type.js')}}"></script>
 </body>
 </html>

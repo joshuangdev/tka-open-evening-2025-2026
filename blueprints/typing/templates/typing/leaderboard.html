@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='typing/styles.css') }}">
+</head>
+<body>
+    <main>
+        <h1 class="hellotype" id="herotitle">HelloType</h1>
+
+        <section id="results">
+            <h2>Leaderboard</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Speed</th>
+                        <th>Accuracy</th>
+                        <th>Time (s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in results %}
+                    <tr>
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.wpm }}</td>
+                        <td>{{ row.accuracy }}%</td>
+                        <td>{{ row.time }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p>Refreshing results in <span id="seconds-left"></span>seconds.</p>
+        </section>
+    </main>
+    <div class="banner"><span id="banner-text">This was made for The Kingston Acadmey's Open Evening 2025. Thank you for visiting The Kingston Acamdey!</span></div>
+    <script src="{{ url_for('static', filename='typing/leaderboard.js') }}"></script>
+</body>
+</html>

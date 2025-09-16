@@ -15,4 +15,7 @@ def create_app():
     from blueprints.typing import typing_bp
     app.register_blueprint(typing_bp, url_prefix='/typing')
 
+    from blueprints.main import main_bp
+    app.register_blueprint(main_bp, url_prefix='/')
+
     return app
