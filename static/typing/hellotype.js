@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 
-  function parseText(text = testText, wordCount = 10) {
+  function parseText(text = testText, wordCount = 17) {
     const words = (text || "").split(',');
     const limitedWords = words.slice(0, Number(wordCount) || 10);
     return limitedWords.join(' ');
