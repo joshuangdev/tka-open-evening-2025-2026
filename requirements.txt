@@ -1,2 +1,3 @@
 pygame
 flask
+firebase_admin
