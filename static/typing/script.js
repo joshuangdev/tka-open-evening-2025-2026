@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var ongoing = false;
   var timeStarted = null;
   var virtualBox = "";
+  var incorrectCharCount = 0;
   var wordsEl = document.getElementById('words');
   var inputEl = document.getElementById('typing-input');
   var infoEl = document.getElementById('info');
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ongoing = false;
     timeStarted = null;
     virtualBox = "";
+    incorrectCharCount = 0;
     if (inputEl) inputEl.value = "";
     if (wordsEl) wordsEl.innerText = "Press start to fetch text from the server.";
     if (infoEl) infoEl.innerText = "";
@@ -88,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
             highlightedText += `<span class="correct">${char}</span>`;
           } else {
             highlightedText += `<span class="incorrect">${char}</span>`;
+            incorrectCharCount += 1;
           }
         } else {
           highlightedText += `<span>${char}</span>`;
@@ -103,7 +106,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (infoEl) infoEl.innerText = `Completed in ${seconds} seconds - ${wpm} WPM`;
         console.log('Time taken:', seconds, 'seconds');
         console.log(wpm, 'WPM');
-        sendResults(wpm, "undefined", seconds, "undefined");
+        let correct = testText.length - incorrectCharCount;
+        let accuracy = Math.round((correct / testText.length) * 100);
+        //let mistakesDisplay = `${incorrectCharCount}/${testText.length}`;
+        sendResults(wpm, accuracy, seconds, incorrectCharCount);
       }
     });
   }

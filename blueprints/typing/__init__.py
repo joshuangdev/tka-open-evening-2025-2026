@@ -11,9 +11,10 @@ def typing_home():
 def typing_results():
     wpm = request.form.get("wpm")
     accuracy = request.form.get("accuracy")
+    if int(accuracy) < 0:
+        accuracy = f"0% {accuracy}"
     time_taken = request.form.get("time")
     mistakes = request.form.get("mistakes")
-    print(time_taken)
     return render_template("results.html",
                            wpm=wpm,
                            accuracy=accuracy,
