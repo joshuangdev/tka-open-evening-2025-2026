@@ -1,3 +1,4 @@
 pygame
 flask
 firebase_admin
+python-dotenv
