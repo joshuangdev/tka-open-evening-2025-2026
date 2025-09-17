@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+        th { background: #eee; }
+        button { margin: 2px; padding: 4px 8px; }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <a href="/admin/pop">Sign off</a>
+    <a href="/admin/extend-sessions">Extend Session</a>
+    <h2>Typing</h2>
+
+    <table>
+        <tr><th>ID</th><th>Data</th><th>Actions</th></tr>
+        {% for doc in data['typing'] %}
+        <tr>
+            <td>{{ doc['id'] }}</td>
+            <td><pre>{{ doc|tojson }}</pre></td>
+            <td>
+                <button onclick="deleteDoc('typing','{{ doc['id'] }}')">Delete</button>
+                <button onclick="updateDoc('typing','{{ doc['id'] }}')">Update</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button onclick="addDoc('typing')">Add New</button>
+
+    <h2>Typing Advanced</h2>
+    <table>
+        <tr><th>ID</th><th>Data</th><th>Actions</th></tr>
+        {% for doc in data['typing_advanced'] %}
+        <tr>
+            <td>{{ doc['id'] }}</td>
+            <td><pre>{{ doc|tojson }}</pre></td>
+            <td>
+                <button onclick="deleteDoc('typing advanced','{{ doc['id'] }}')">Delete</button>
+                <button onclick="updateDoc('typing advanced','{{ doc['id'] }}')">Update</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button onclick="addDoc('typing advanced')">Add New</button>
+
+<script>
+function deleteDoc(collection, id) {
+    fetch(`/admin/delete/${collection}/${id}`, {method:'POST'})
+    .then(()=>location.reload());
+}
+function updateDoc(collection, id) {
+    const json = prompt("Enter new JSON data:");
+    if (!json) return;
+    fetch(`/admin/update/${collection}/${id}`, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:json
+    }).then(()=>location.reload());
+}
+function addDoc(collection) {
+    const json = prompt("Enter JSON for new doc:");
+    if (!json) return;
+    fetch(`/admin/add/${collection}`, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:json
+    }).then(()=>location.reload());
+}
+</script>
+</body>
+</html>

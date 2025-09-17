@@ -56,7 +56,7 @@ def advanced_typing_results():
     doc = doc_ref.get()
     if doc.exists:
         data = doc.to_dict()
-        return render_template("advanced_results.html", **data)
+        return render_template("advanced_results.html", **data, mode="AdvancedType")
     else:
         return redirect(url_for("home.onboarding"))
 @typing_bp.route('/generate', methods=['GET'])
@@ -102,7 +102,7 @@ def typing_leaderboard():
             results.append(data)
     print(results)
     results = sorted(results, key=lambda x: (-float(x.get("wpm", 0)), -float(x.get("accuracy", 0)), float(x.get("time", float('inf')))))[:10]
-    return render_template("leaderboard.html", results=results)
+    return render_template("leaderboard.html", results=results, mode="HelloType")
 
 @typing_bp.route('/advanced_leaderboard')
 def advanced_leaderboard():
@@ -116,3 +116,4 @@ def advanced_leaderboard():
     print(results)
     results = sorted(results, key=lambda x: (-float(x.get("wpm", 0)), -float(x.get("accuracy", 0)), float(x.get("time", float('inf')))))[:10]
     return render_template("leaderboard.html", results=results)
+

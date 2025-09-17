@@ -18,4 +18,7 @@ def create_app():
     from blueprints.main import main_bp
     app.register_blueprint(main_bp, url_prefix='/')
 
+    from blueprints.admin import admin_bp
+    app.register_blueprint(admin_bp, url_prefix='/admin')
+
     return app

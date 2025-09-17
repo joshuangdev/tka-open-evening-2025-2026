@@ -1,0 +1,18 @@
+<script>
+    const input = prompt("Please authenticate yourself.");
+    fetch("/admin/ep", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "password": input
+        }
+    })
+    .then(res => res.json())
+    .then(data => {
+        window.location.href = data.redirect;
+    })
+    .catch(() => {
+        alert("Authentication failed. Please try again.");
+        window.location.href = "/";
+    });
+</script>

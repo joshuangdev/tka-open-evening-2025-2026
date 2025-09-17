@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 
-  function parseText(text = testText, wordCount = 17) {
+  function parseText(text = testText, wordCount = 30) {
     const words = (text || "").split(',');
     const limitedWords = words.slice(0, Number(wordCount) || 10);
     return limitedWords.join(' ');
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(response => response.json())
       .then(data => {
         // Corrected variable name from 'textText' to 'testText'
-        testText = parseText(data.text, wordCount || 10);
+        testText = parseText(data.text, wordCount || 20);
         console.log(data.text)
         wordsEl.innerText = testText;
         inputEl.setAttribute("placeholder", "Start typing here...");
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (startBtn) startBtn.addEventListener('click', function() {
     reset();
     if (inputEl) inputEl.value = "";
-    fetchTest(test, wordCountEl ? wordCountEl.value : 10);
+    fetchTest(test, wordCountEl ? wordCountEl.value : 20);
     ongoing = true;
     timeStarted = new Date(); // Set timeStarted immediately on click
     if (inputEl) inputEl.focus();

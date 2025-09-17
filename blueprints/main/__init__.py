@@ -12,4 +12,10 @@ def onboarding():
         return render_template("onboarding_advanced.html", mode=request.args.get("mode"))
     return render_template("onboarding.html")
 
+@main_bp.route("/contents")
+def contents():
+    return render_template("contents.html")
 
+@main_bp.route("/manual")
+def manual():
+    return render_template("manual.html")
