@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='main/styles.css') }}">
+<title>Catch The Fruit</title>
+<div class="container box">
+    <h1 class="title" style="margin:0 auto;">Catch The Fruit</h1>
+    <p style="margin-bottom: 1rem;">
+        Every fruit you catch with your body, you gain one point. Try to beat the high score!
+    </p>
+    <div class="game-embed" style="text-align:center;">
+        <iframe 
+            src="https://scratch.mit.edu/projects/895688791/embed" 
+            allowtransparency="true" 
+            allow="camera; microphone; fullscreen" 
+            width="1024" 
+            height="701" 
+            frameborder="0" 
+            scrolling="no" 
+            allowfullscreen
+            style="border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.4);">
+        </iframe>
+    </div>
+    <h2>
+        If the embed or camera doesn't show up please visit:
+        <a href="https://scratch.mit.edu/projects/895688791/fullscreen/" target="_blank" style="color: var(--primaryColor);">
+            Click Here!
+        </a>
+    </h2>
+    <script>if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+console.log("getUserMedia is supported!");
+} else {
+console.error("getUserMedia is not supported in this browser.");
+}
+navigator.mediaDevices.getUserMedia({ video: true })
+.then((stream) => {
+// Access granted: attach the stream to a video element
+const videoElement = document.querySelector('video');
+videoElement.srcObject = stream;
+videoElement.play();
+console.log("Camera access granted!");
+})
+.catch((error) => {
+// Access denied or error occurred
+console.error("Camera access denied:", error);
+});</script>
+</div>

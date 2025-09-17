@@ -19,3 +19,7 @@ def contents():
 @main_bp.route("/manual")
 def manual():
     return render_template("manual.html")
+
+@main_bp.route('/catchthefruit')
+def catchthefruit():
+    return render_template('catchthefruit.html')
