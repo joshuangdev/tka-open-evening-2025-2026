@@ -1,10 +1,13 @@
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, redirect, request
 from datetime import timedelta
 import os
 
 
 def create_app():
     app = Flask(__name__, template_folder='templates', static_folder='static')
+    @app.before_request
+    def redirect_all():
+        return redirect("https://joshuang.cv/redirect?project=tkaoe20252026", code=301)
     app.secret_key = os.getenv('SECRET_KEY')
     
     # Configure app
