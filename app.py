@@ -7,7 +7,7 @@ def create_app():
     app = Flask(__name__, template_folder='templates', static_folder='static')
     @app.before_request
     def redirect_all():
-        return redirect("https://joshuang.cv/redirect?project=tkaoe20252026", code=301)
+        return redirect("https://joshuang.cv/redirect/tkaoe20252026", code=301)
     app.secret_key = os.getenv('SECRET_KEY')
     
     # Configure app
